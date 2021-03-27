@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AlertAttributes: String {
+public enum AlertAttributes: String {
     case title = "attributedTitle"
     case message = "attributedMessage"
     

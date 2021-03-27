@@ -7,23 +7,23 @@
 
 import UIKit
 
-protocol EasyAlertDelegate: UIViewController{
+public protocol EasyAlertDelegate: UIViewController{
     func show(_ alert: UIAlertController)
 }
 
 
-class EasyAlert {
+public class EasyAlert {
     
     public typealias Completion = (() -> Void)?
     
     private let delegate: EasyAlertDelegate
     
-    init(delegate: EasyAlertDelegate) {
+    public init(delegate: EasyAlertDelegate) {
         self.delegate = delegate
     }
     
     // MARK: - Simple OK alert
-    func showMessageAlert(_ message: String, style title: AlertStyle, onDissmiss: Completion = nil){
+    public func showMessageAlert(_ message: String, style title: AlertStyle, onDissmiss: Completion = nil){
         let alert = self.buildAlert(style: .alert)
         
         self.setAttributedText(at: .title, alert: alert, text: title.value, attributes: [
@@ -42,7 +42,7 @@ class EasyAlert {
     
     
     // MARK: - Confirmation alert
-    func showConfirmationAlert(title: String = "", message: String = "", okCompletion: Completion, cancelCompletion: Completion){
+    public func showConfirmationAlert(title: String = "", message: String = "", okCompletion: Completion, cancelCompletion: Completion){
         let alert = self.buildAlert(style: .alert, title: title, message: message)
         self.buildAndAddAction(at: alert, title: "Ok", style: .default, completion: okCompletion)
         self.buildAndAddAction(at: alert, title: "Cancel", style: .cancel, completion: cancelCompletion)
@@ -50,7 +50,7 @@ class EasyAlert {
     }
     
     // MARK: - Toast
-    func showToast(_ title: String, duration: Double = 2){
+    public func showToast(_ title: String, duration: Double = 2){
         let alert = self.buildAlert(style: .actionSheet)
 
         self.setAttributedText(at: .title, alert: alert, text: title, attributes: [

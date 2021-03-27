@@ -8,7 +8,7 @@
 import Foundation
 
 
-enum AlertStyle: String {
+public enum AlertStyle: String {
     case success = "✅"
     case warning = "⚠️"
     case error = "❌"
